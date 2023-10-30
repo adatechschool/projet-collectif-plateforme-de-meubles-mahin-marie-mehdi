@@ -1,6 +1,11 @@
 const express = require('express')
+const securityMiddleware = require('./securityMiddleware');
+
 const app = express()
 const authentification = require('./Middlewares/authentification');
+
+// Use the security middleware for all routes
+app.use(securityMiddleware);
 
 // Middleware function for logging incoming requests
 app.use((req, res, next) => {
