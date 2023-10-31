@@ -24,8 +24,7 @@ const Layout = () => {
               </Link>
             </li>
             <li className="nav-item dropdown">
-              <Link
-                to="./connexion"
+              <span
                 className="nav-link dropdown-toggle"
                 id="navbarDropdownMenuLink"
                 data-toggle="dropdown"
@@ -33,7 +32,7 @@ const Layout = () => {
                 aria-expanded="false"
               >
                 Compte
-              </Link>
+              </span>
               <div
                 className="dropdown-menu"
                 aria-labelledby="navbarDropdownMenuLink"
