@@ -4,6 +4,7 @@ require("dotenv").config()
 const securityMiddleware = require('./Middlewares/securityMiddleware');
 const app = express()
 const authentification = require('./Middlewares/authentification');
+const cors = require('cors');
 
 // Use the security middleware for all routes
 app.use(securityMiddleware);
@@ -31,6 +32,12 @@ app.use(session({
 
   // Middleware for authentication
   app.use(authentification);
+
+  // Middleware CORS
+  app.use(cors({
+    origin: ['https://accounts.google.com']
+  }));
+
   // Middleware for parsing JSON request bodies
   app.use(express.json());
 
@@ -43,4 +50,4 @@ app.use(session({
   });
 
 // Start the server
-app.listen(8080, () => { console.log("Server is running") });
+app.listen(3000, () => { console.log("Server is running") });
