@@ -1,5 +1,5 @@
 const express = require('express')
-const securityMiddleware = require('./securityMiddleware');
+const securityMiddleware = require('./Middlewares/securityMiddleware');
 
 const app = express()
 const authentification = require('./Middlewares/authentification');
