@@ -1,5 +1,5 @@
-const Blogs = () => {
-    return <h1>Blog Articles</h1>;
-  };
-  
-  export default Blogs;
+const Admin = () => {
+  return <h1>ADMIN</h1>;
+};
+
+export default Admin;

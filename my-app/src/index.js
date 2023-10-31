@@ -1,14 +1,14 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { BrowserRouter, Routes, Route} from 'react-router-dom';
-import './styles/index.css';
-import reportWebVitals from './reportWebVitals';
-import Layout from './pages/Layout';
-import Accueil from './pages/Accueil';
-import Connexion from './pages/Connexion';
-import Inscription from './pages/Inscription';
-import DetailPage from './pages/DetailPage';
-import Admin from './pages/Admin';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "./styles/index.css";
+import reportWebVitals from "./reportWebVitals";
+import Layout from "./pages/Layout";
+import Accueil from "./pages/Accueil";
+import Connexion from "./pages/Connexion";
+import Inscription from "./pages/Inscription";
+import DetailPage from "./pages/DetailPage";
+import Admin from "./pages/Admin";
 
 export default function App() {
   return (
@@ -26,7 +26,7 @@ export default function App() {
   );
 }
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<App />);
 
 // If you want to start measuring performance in your app, pass a function
