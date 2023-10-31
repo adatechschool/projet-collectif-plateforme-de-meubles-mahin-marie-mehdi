@@ -14,20 +14,20 @@ app.use((req, res, next) => {
     next(); // Move on to the next middleware or route
   });
 
-  // possibilité de le mettre dans un fichier à part dans le dossier middleware plus tard
-  // Middleware de gestion de session
+  /// Possibility to move this to a separate file in the middleware folder later
+  // Session management middleware
 app.use(session({
-    name: process.env.SESSION_NAME, // Nom du cookie de session
-    resave: false, // Ne pas enregistrer la session à chaque requête non modifiée
-    saveUninitialized: false, // Ne pas enregistrer de session pour les visiteurs sans données de session
-    secret: process.env.SESSION_SECRET, // Clé secrète pour signer les cookies de session
-    cookie: {
-      maxAge: 1000 * 60 * 60 * 24 * 7, // Durée de vie du cookie de session (7 jours)
-      secure: false, // Le cookie de session peut être transmis sur une connexion non sécurisée (HTTP)
-      // Vous pouvez activer "secure" en true en production avec HTTPS
-    },
-  })
-);
+  name: process.env.SESSION_NAME, // Session cookie name
+  resave: false, // Do not save the session on every unmodified request
+  saveUninitialized: false, // Do not save a session for visitors without session data
+  secret: process.env.SESSION_SECRET, // Secret key for signing session cookies
+  cookie: {
+    maxAge: 1000 * 60 * 60 * 24 * 7, // Session cookie lifetime (7 days)
+    secure: false, // The session cookie can be transmitted over an insecure connection (HTTP)
+    // You can enable "secure" as true in production with HTTPS
+  },
+}));
+
 
   // Middleware for authentication
   app.use(authentification);
