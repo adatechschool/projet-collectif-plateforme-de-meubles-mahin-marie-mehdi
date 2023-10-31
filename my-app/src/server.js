@@ -1,7 +1,12 @@
 const express = require('express')
 const session = require('express-session')
 require("dotenv").config()
+const securityMiddleware = require('./Middlewares/securityMiddleware');
 const app = express()
+const authentification = require('./Middlewares/authentification');
+
+// Use the security middleware for all routes
+app.use(securityMiddleware);
 
 // Middleware function for logging incoming requests
 app.use((req, res, next) => {
@@ -24,7 +29,8 @@ app.use(session({
   })
 );
 
-
+  // Middleware for authentication
+  app.use(authentification);
   // Middleware for parsing JSON request bodies
   app.use(express.json());
 
