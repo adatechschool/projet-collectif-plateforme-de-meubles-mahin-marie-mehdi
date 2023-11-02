@@ -1,5 +1,5 @@
 import ConnexionPassword from "../components/ConnexionPassword";
-import { Outlet, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Email from "../components/Email";
 import ButtonConnexion from "../components/ButtonConnexion";
 

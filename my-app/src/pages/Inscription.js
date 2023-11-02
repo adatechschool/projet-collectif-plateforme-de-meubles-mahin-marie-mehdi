@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Outlet, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Password from "../components/Password";
 import Email from "../components/Email";
 import ConfirmPassword from "../components/ConfirmPassword";
