@@ -16,3 +16,9 @@ code {
   max-height: 16rem; /* Ajustez la hauteur maximale en pixels selon vos besoins */
   overflow-y: auto; /* Active la barre de défilement verticale lorsque nécessaire */
 }
+
+#logo{
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+}
