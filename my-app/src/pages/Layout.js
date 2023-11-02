@@ -23,6 +23,11 @@ const Layout = () => {
                 Accueil<span className="sr-only"></span>
               </Link>
             </li>
+            <li className="nav-item active">
+              <Link to="./admin" className="nav-link">
+                Administration<span className="sr-only"></span>
+              </Link>
+            </li>
             <li className="nav-item dropdown">
               <span
                 className="nav-link dropdown-toggle"
