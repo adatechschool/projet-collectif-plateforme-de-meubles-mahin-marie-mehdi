@@ -6,17 +6,17 @@ function connexionDatabase(){
         user: 'root',
         password: process.database.env.password,
         database: 'copameba'
-})
+    })
 
-connection.connect()
+    connection.connect()
 
-connection.query('SELECT 1 + 1 AS solution', (err, row, fields) => {
-    if (err) throw err
+    connection.query('SELECT * FROM product_category', (err, row, fields) => {
+        if (err) throw err
 
-    console.log('The solution is: ', row[0].solution)
-})
+        console.log('The solution is: ', row[0].solution)
+    })
 
-connection.end();
+    connection.end();
 }
 
 module.exports = connexionDatabase;
