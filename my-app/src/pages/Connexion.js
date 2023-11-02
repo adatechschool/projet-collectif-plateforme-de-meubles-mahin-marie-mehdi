@@ -3,7 +3,7 @@ import Email from "../components/Email";
 
 const Connexion = () => {
   return (
-    <div className="">
+    <div className="text-center">
       <h1>Connexion</h1>
       <Email />
       <Password />
