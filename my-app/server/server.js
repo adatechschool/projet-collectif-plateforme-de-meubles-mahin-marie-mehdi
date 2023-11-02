@@ -44,6 +44,8 @@ app.use(session({
     res.status(500).json({ error: 'Ooops !' });
   });
 
+  app.use(connexionDatabase);
+
 // Start the server
 app.listen(8080, () => { console.log("Server is running") });
 

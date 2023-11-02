@@ -1,11 +1,11 @@
 const mysql = require('mysql');
 
 function connexionDatabase(){
-const connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: process.database.env.password,
-    database: 'copameba'
+    const connection = mysql.createConnection({
+        host: 'localhost',
+        user: 'root',
+        password: process.database.env.password,
+        database: 'copameba'
 })
 
 connection.connect()
@@ -19,4 +19,4 @@ connection.query('SELECT 1 + 1 AS solution', (err, row, fields) => {
 connection.end();
 }
 
-module.exports(connexionDatabase);
+module.exports= connexionDatabase;

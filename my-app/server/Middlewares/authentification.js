@@ -4,8 +4,14 @@ const LocalStrategy = require('passport-local').Strategy;
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const bcrypt = require('bcryptjs');
 const User = require('../../src/Database/connectionDatabase');
+<<<<<<< HEAD
 // const app = require('../../src/App')
 const express = require('express');
+=======
+const express = require('express');
+
+
+>>>>>>> bdedce5dab2ebae0954db7d251402a744ec3a3cd
 const app = express()
 
 // Configure the local authentication policy
@@ -91,3 +97,9 @@ function isAuthenticated(req, res, next) {
 app.get('/dashboard', isAuthenticated, (req, res) => {
   // Display the dashboard of user
 });
+<<<<<<< HEAD
+=======
+
+
+  module.exports = isAuthenticated;
+>>>>>>> bdedce5dab2ebae0954db7d251402a744ec3a3cd
