@@ -1,61 +1,10 @@
 import React from 'react';
-import img1 from './img/table_jdr_1.jpg';
-import img2 from './img/table_jdr_2.jpg';
-import img3 from './img/table_jdr_3.jpg';
-import img4 from './img/table_jdr_4.jpg';
-import img5 from './img/table_jdr_5.jpg';
-import img6 from './img/table_jdr_6.jpg';
-import img7 from './img/table_jdr_7.jpg';
+import Carousel from '../components/Carousel';
 
 const Produit = () => {
   return (
-    <div class="d-flex justify-content-center">
-    <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">
-      <ol className="carousel-indicators">
-        <li data-target="#carouselExampleIndicators" data-slide-to="0" className="active"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="3" ></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="4" ></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="5" ></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="6" ></li>
-      </ol>
-      <div className="carousel-inner">
-        <div className="carousel-item active">
-          <img className="d-block w-100 img-fluid" src={img1} alt="First slide" />
-          <div class="carousel-caption d-none d-md-block">
-            <h5>Première image</h5>
-            <p>C'est oune potite table</p>
-          </div>
-        </div>
-        <div className="carousel-item">
-          <img className="d-block w-100 img-fluid" src={img2} alt="Second slide" />
-        </div>
-        <div className="carousel-item">
-          <img className="d-block w-100 img-fluid" src={img3} alt="Third slide" />
-        </div>
-        <div className="carousel-item">
-          <img className="d-block w-100 img-fluid" src={img4} alt="Fourth slide" />
-        </div>
-        <div className="carousel-item">
-          <img className="d-block w-100 img-fluid" src={img5} alt="Fifth slide" />
-        </div>
-        <div className="carousel-item">
-          <img className="d-block w-100 img-fluid" src={img6} alt="Sixth slide" />
-        </div>
-        <div className="carousel-item">
-          <img className="d-block w-100 img-fluid" src={img7} alt="Seventh slide" />
-        </div>
-      </div>
-      <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-        <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span className="sr-only">Previous</span>
-      </a>
-      <a className="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-        <span className="carousel-control-next-icon" aria-hidden="true"></span>
-        <span className="sr-only">Next</span>
-      </a>
-    </div>
+    <div>
+      <Carousel />
     </div>
   );
 };
