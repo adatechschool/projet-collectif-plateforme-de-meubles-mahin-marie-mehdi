@@ -1,5 +1,8 @@
 // Composant Password
-const Password = () => {
+const Password = ({ setPassword }) => {
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+  };
   return (
     <div
       className="container d-flex justify-content-center align-items-center"
@@ -13,6 +16,7 @@ const Password = () => {
             id="inputPassword1"
             aria-describedby="passwordHelpInline"
             className="form-control"
+            onChange={handlePasswordChange}
           />
         </div>
       </form>
