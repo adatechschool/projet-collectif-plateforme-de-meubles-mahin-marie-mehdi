@@ -1,5 +1,6 @@
 import Password from "../components/Password";
 import Email from "../components/Email";
+import ButtonConnexion from "../components/ButtonConnexion";
 
 const Connexion = () => {
   return (
@@ -7,6 +8,7 @@ const Connexion = () => {
       <h1>Connexion</h1>
       <Email />
       <Password />
+      <ButtonConnexion />
     </div>
   );
 };

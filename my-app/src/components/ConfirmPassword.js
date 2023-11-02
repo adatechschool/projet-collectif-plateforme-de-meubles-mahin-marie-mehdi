@@ -1,5 +1,5 @@
 // Composant Password
-const Password = () => {
+const ConfirmPassword = () => {
   return (
     <div
       className="container d-flex justify-content-center align-items-center"
@@ -7,10 +7,10 @@ const Password = () => {
     >
       <form style={{ width: "300px" }}>
         <div className="form-group text-center">
-          <label htmlFor="inputPassword1">Mot de passe</label>
+          <label htmlFor="inputPassword2">Valider mot de passe</label>
           <input
             type="password"
-            id="inputPassword1"
+            id="inputPassword2"
             aria-describedby="passwordHelpInline"
             className="form-control"
           />
@@ -20,4 +20,4 @@ const Password = () => {
   );
 };
 
-export default Password;
+export default ConfirmPassword;
