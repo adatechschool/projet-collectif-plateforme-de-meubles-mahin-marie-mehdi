@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Product = require();// TODO: Import the model using sequelise and mysql2 libraries.
 
+
 // GET all products
 router.get('/', async (req, res) => {
     try {
