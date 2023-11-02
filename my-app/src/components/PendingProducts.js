@@ -1,3 +1,4 @@
+// Ce composant est appelé dans la page Admin.js
 import React, { useState, useEffect } from "react";
 import { Table } from "react-bootstrap";
 import mockStockData from "./mockStockData";
@@ -9,6 +10,8 @@ function PendingProducts() {
 
   useEffect(() => {
     // Pour l'instant j'utilise mon fichier mockStockData.js qui me permet de simuler l'appel API
+    // TODO : Modifier l'appel API pour obtenir l'affichage des données souhaitées.
+    // La boucle qui permet de créer les lignes est déjà réalisé.
     setStockData(mockStockData);
   }, []);
 
