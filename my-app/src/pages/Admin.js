@@ -1,6 +1,8 @@
 import BlocStock from "../components/BlocStock";
 import PendingProducts from "../components/PendingProducts";
 
+//TODO : Cette page ne devra être accessible que pour les comptes ayant des droits spécifiques.
+
 function Admin() {
   return (
     <div>

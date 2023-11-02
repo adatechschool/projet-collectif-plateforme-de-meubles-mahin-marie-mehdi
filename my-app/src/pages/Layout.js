@@ -4,7 +4,7 @@ const Layout = () => {
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <h1 className="navbar-brand">COPAMEBA</h1>
+        <h1 className="col-md-9 navbar-brand">COPAMEBA</h1>
         <button
           className="navbar-toggler"
           type="button"
