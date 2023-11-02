@@ -14,12 +14,12 @@ router.get('/', async (req, res) => {
 });
 
 // GET a single product by ID
-router.get('/:id', getProduct, (req, res) => {
+router.get('/product:id', getProduct, (req, res) => {
     res.json(res.product);
 });
 
 // CREATE a new product
-router.post('/', async (req, res) => {
+router.post('/product:new', async (req, res) => {
     const product = new Product({
         name: req.body.name,
         description: req.body.description,
@@ -35,7 +35,7 @@ router.post('/', async (req, res) => {
 });
 
 // UPDATE a product by ID
-router.patch('/:id', getProduct, async (req, res) => {
+router.patch('/product/update:id', getProduct, async (req, res) => {
     if (req.body.name != null) {
         res.product.name = req.body.name;
     }
@@ -55,7 +55,7 @@ router.patch('/:id', getProduct, async (req, res) => {
 });
 
 // DELETE a product by ID
-router.delete('/:id', getProduct, async (req, res) => {
+router.delete('/product/delete:id', getProduct, async (req, res) => {
     try {
         await res.product.remove();
         res.json({ message: 'Product deleted' });

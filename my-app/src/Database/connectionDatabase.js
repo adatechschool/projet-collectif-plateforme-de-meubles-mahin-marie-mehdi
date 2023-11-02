@@ -4,22 +4,19 @@ function connexionDatabase(){
     const connection = mysql.createConnection({
         host: 'localhost',
         user: 'root',
-        password: process.database.env.password,
+        // port: 3306,
+        password: process.env.password,
         database: 'copameba'
     })
 
-    connection.connect()
+    // connection.connect()
 
-    connection.query('SELECT * FROM product_category', (err, row, fields) => {
-        if (err) throw err
-
-        console.log('The solution is: ', row[0].solution)
-    })
-
-    connection.end();
+    return connection
 }
 
 
 
-module.exports = {connexionDatabase};
+module.exports = connexionDatabase;
+
+
 
