@@ -4,6 +4,8 @@ require("dotenv").config()
 const securityMiddleware = require('./Middlewares/securityMiddleware');
 const app = express()
 const authentification = require('./Middlewares/authentification');
+const mysql = require('mysql');
+const connexionDatabase = require('./Database/connectionDatabase');
 
 // Use the security middleware for all routes
 app.use(securityMiddleware);
@@ -44,3 +46,6 @@ app.use(session({
 
 // Start the server
 app.listen(8080, () => { console.log("Server is running") });
+
+//Connection to the database
+app.use(connexionDatabase);
