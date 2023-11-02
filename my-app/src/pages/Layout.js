@@ -34,7 +34,7 @@ const Layout = () => {
                 Compte
               </span>
               <div
-                className="dropdown-menu"
+                className="dropdown-menu float-right"
                 aria-labelledby="navbarDropdownMenuLink"
               >
                 <Link to="./connexion" className="dropdown-item">
