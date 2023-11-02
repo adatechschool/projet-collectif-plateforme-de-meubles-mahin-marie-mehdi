@@ -1,4 +1,4 @@
- const mysql = require('mysql');
+const mysql = require("mysql");
 
 function connexionDatabase(){
     const connection = mysql.createConnection({
@@ -19,4 +19,7 @@ function connexionDatabase(){
     connection.end();
 }
 
-module.exports = connexionDatabase;
+
+
+module.exports = {connexionDatabase};
+
