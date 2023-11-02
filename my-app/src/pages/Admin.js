@@ -5,7 +5,8 @@ function Admin() {
   return (
     <div>
       <BlocStock />
-      <p className="row"></p>
+      {/* j'ai mis une ligne p ici qui n'est que pour faire jolie. */}
+      <p className="row"></p> 
       <PendingProducts />
     </div>
   );

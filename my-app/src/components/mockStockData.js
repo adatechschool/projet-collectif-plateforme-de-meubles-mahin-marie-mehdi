@@ -1,3 +1,5 @@
+// TODO : Une fois les appels API effectués sur les pages PendingProducts et BlocStock, le fichier pourra être supprimé.
+
 const mockStockData = [
   {
     id: 1,
