@@ -1,4 +1,4 @@
-import Password from "../components/Password";
+import ConnexionPassword from "../components/ConnexionPassword";
 import Email from "../components/Email";
 import ButtonConnexion from "../components/ButtonConnexion";
 
@@ -7,7 +7,7 @@ const Connexion = () => {
     <div className="text-center">
       <h1>Connexion</h1>
       <Email />
-      <Password />
+      <ConnexionPassword />
       <ButtonConnexion />
     </div>
   );
