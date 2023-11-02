@@ -3,6 +3,10 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const bcrypt = require('bcryptjs');
+const User = require('../../src/Database/connectionDatabase');
+// const app = require('../../src/App')
+const express = require('express');
+const app = express()
 
 // Configure the local authentication policy
 passport.use(new LocalStrategy(
