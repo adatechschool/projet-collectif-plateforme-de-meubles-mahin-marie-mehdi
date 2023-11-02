@@ -1,24 +1,55 @@
-const express = require('express')
-const session = require('express-session')
-require("dotenv").config()
-const securityMiddleware = require('./Middlewares/securityMiddleware');
-const app = express()
-const authentification = require('./Middlewares/authentification');
-const mysql = require('mysql');
-const connexionDatabase = require('./Database/connectionDatabase');
+const express = require("express");
+const session = require("express-session");
+require("dotenv").config();
+const securityMiddleware = require("./Middlewares/securityMiddleware");
+const app = express();
+const authentification = require("./Middlewares/authentification");
+const mysql = require("mysql");
+const myConnection = require("express-myconnection");
+const connexionDatabase = require("../src/Database/connectionDatabase");
+const cors = require("cors");
+const connection = require("../src/Database/connection");
+
+//Object for database connection
+const optionBd = {
+  host: "localhost",
+  user: "root",
+  password: process.database.env.password,
+  port: 3306,
+  database: "copameba",
+};
+
+// Définition du middleware pour connexion à la base de données
+app.use(myConnection(mysql, optionBd));
+
+app.get("/", (req, res) => {
+  req.getConnection((erreur, connection) => {
+    if (erreur){
+      console.log(erreur);
+    }
+  })
+})
+
+// Middleware CORS
+.app.use(
+  cors({
+    origin: ["https://accounts.google.com"],
+  })
+);
 
 // Use the security middleware for all routes
 app.use(securityMiddleware);
 
 // Middleware function for logging incoming requests
 app.use((req, res, next) => {
-    console.log(`Request received: ${req.method} ${req.url}`);
-    next(); // Move on to the next middleware or route
-  });
+  console.log(`Request received: ${req.method} ${req.url}`);
+  next(); // Move on to the next middleware or route
+});
 
-  // possibilité de le mettre dans un fichier à part dans le dossier middleware plus tard
-  // Middleware de gestion de session
-app.use(session({
+// possibilité de le mettre dans un fichier à part dans le dossier middleware plus tard
+// Middleware de gestion de session
+app.use(
+  session({
     name: process.env.SESSION_NAME, // Nom du cookie de session
     resave: false, // Ne pas enregistrer la session à chaque requête non modifiée
     saveUninitialized: false, // Ne pas enregistrer de session pour les visiteurs sans données de session
@@ -31,22 +62,22 @@ app.use(session({
   })
 );
 
-  // Middleware for authentication
-  app.use(authentification);
-  // Middleware for parsing JSON request bodies
-  app.use(express.json());
+// Middleware for authentication
+app.use(authentification);
+// Middleware for parsing JSON request bodies
+app.use(express.json());
 
-  // Define your routes and API endpoints here
+// Define your routes and API endpoints here
 
-  // Error handling middleware
-  app.use((err, req, res, next) => {
-    console.error(err);
-    res.status(500).json({ error: 'Ooops !' });
-  });
+// Error handling middleware
+app.use((err, req, res, next) => {
+  console.error(err);
+  res.status(500).json({ error: "Ooops !" });
+});
 
-  app.use(connexionDatabase);
+app.use(connexionDatabase);
 
 // Start the server
-app.listen(8080, () => { console.log("Server is running") });
-
-// module.exports = app
+app.listen(8080, () => {
+  console.log("Server is running");
+});
