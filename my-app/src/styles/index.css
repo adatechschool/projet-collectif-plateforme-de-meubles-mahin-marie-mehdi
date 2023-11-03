@@ -12,6 +12,44 @@ code {
     monospace;
 }
 
+.thumb {
+  width: 100px; /* Vous pouvez ajuster cette valeur */
+  height: auto;
+  align-items: center;
+}
+
+.btnThumb {
+  align-items: center;
+  background-color: none;
+}
+
+.carousel {
+  width: 550px;
+  height: auto;
+  align-items: center;
+}
+
+.carousel-item {
+  width: 550px;
+  height: auto;
+  align-items: center;
+}
+
+.colorisBtn {
+  width: 30px;
+  height: 30px;
+  border-radius: 50px;
+}
+
+.card-link {
+  border-radius: 25px;
+}
+
+.imageBtn {
+  width: 460px;
+  height: auto;
+}
+=======
 .scrollable-table {
   max-height: 16rem; /* Ajustez la hauteur maximale en pixels selon vos besoins */
   overflow-y: auto; /* Active la barre de défilement verticale lorsque nécessaire */
