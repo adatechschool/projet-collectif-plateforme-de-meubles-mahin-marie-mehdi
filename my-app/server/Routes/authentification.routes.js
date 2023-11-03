@@ -2,40 +2,35 @@
 const express = require('express');
 const passport = require('passport');
 const router = express.Router();
-
-// Route for handling local login/authentication
-router.post('/login', passport.authenticate('local'), (req, res) => {
-  // Handle successful authentication
-  res.send('Successfully authenticated');
-});
-
-// Route for initiating the Google OAuth authentication process
-router.get('/auth/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
-
-// Route for handling the callback from Google after OAuth authentication
-router.get('/auth/google/callback', passport.authenticate('google'), (req, res) => {
-  // Handle successful authentication
+// Define a route for authentication
+app.post('/login', passport.authenticate('local'), (req, res) => {
+  // The user has been authenticated
   res.redirect('/dashboard');
 });
 
-// Route for the user dashboard or any other protected resource that requires authentication
-router.get('/dashboard', isAuthenticated, (req, res) => {
-  // Handle authenticated user
-  res.send(`Welcome ${req.user.username}`);
+// Define a route for authentication Google OAuth
+app.get('/auth/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
+
+// Define a route for redirection after authentication Google OAuth
+app.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/login' }), (req, res) => {
+// L'utilisateur est authentifié, rediriger vers la page d'accueil
+res.redirect('/');
 });
 
-// Route for logging out and destroying the session
-router.get('/logout', (req, res) => {
-  req.logout();
-  res.redirect('/');
-});
-
-// Middleware for checking if user is authenticated
+// Add a middleware for checking if the user is authenticated
 function isAuthenticated(req, res, next) {
   if (req.isAuthenticated()) {
+    // The user is authenticated, continue
     return next();
+  } else {
+    // The user is not authenticated, redirect to the login page
+    res.redirect('/login');
   }
-  res.redirect('/');
 }
+
+// Use middleware to protect routes requiring authentication
+app.get('/dashboard', isAuthenticated, (req, res) => {
+  // Display the dashboard of user
+});
 
 module.exports = router;
