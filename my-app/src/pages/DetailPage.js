@@ -1,6 +1,6 @@
-import React from 'react';
-import Carousel from '../components/Carousel';
-import FicheDetail from '../components/FicheDetail';
+import React from "react";
+import Carousel from "../components/Carousel";
+import FicheDetail from "../components/FicheDetail";
 
 const Produit = () => {
   return (

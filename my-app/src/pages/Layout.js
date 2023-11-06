@@ -1,12 +1,14 @@
 import { Outlet, Link } from "react-router-dom";
-import logo from "../assets/images/COPMEBA.png"
+import logo from "../assets/images/COPMEBA.png";
 
 const Layout = () => {
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <img  id="logo" src={logo} alt="logo" className="thumbnail"></img>
-        <h1 className="navbar-brand" Style="padding-bottom:0;">COPAMEBA</h1>
+        <img id="logo" src={logo} alt="logo" className="thumbnail"></img>
+        <h1 className="navbar-brand" Style="padding-bottom:0;">
+          COPAMEBA
+        </h1>
 
         <button
           className="navbar-toggler"
