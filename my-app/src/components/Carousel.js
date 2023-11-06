@@ -10,12 +10,11 @@ import img7 from "../assets/img/table_jdr_7.jpg";
 function Carousel({ productImages }) {
   return (
     <div className="d-flex flex-column justify-content-center">
-      
       {/* Carousel */}
 
       <div
         id="carouselExampleIndicators"
-        className="carousel slide row"
+        className="carousel slide"
         data-ride="carousel"
       >
         <ol className="carousel-indicators">
