@@ -1,5 +1,5 @@
 class User {
-  constructor(username, password, firstName, familyName, telephone) {
+  constructor(username, password, firstName, familyName, telephone, createdAt, modifiedAt, deletedAt) {
     this.username = username;
     this.password = password;
     this.firstName = firstName;
@@ -7,5 +7,6 @@ class User {
     this.telephone = telephone;
     this.createdAt = new Date();
     this.modifiedAt = new Date();
+    this.deletedAt = new Date();
   }
 }
