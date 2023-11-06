@@ -46,6 +46,7 @@ const Layout = () => {
               <div
                 className="dropdown-menu float-right"
                 aria-labelledby="navbarDropdownMenuLink"
+                Style="right:0; left:auto;"
               >
                 <Link to="./connexion" className="dropdown-item">
                   Connexion
