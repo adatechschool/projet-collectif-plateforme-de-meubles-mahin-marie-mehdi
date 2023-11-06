@@ -1,4 +1,4 @@
-// Composant Password 
+// Composant Password
 const ConfirmPassword = ({ confirmPassword, setConfirmPassword }) => {
   const handleConfirmPasswordChange = (e) => {
     setConfirmPassword(e.target.value);
@@ -14,7 +14,6 @@ const ConfirmPassword = ({ confirmPassword, setConfirmPassword }) => {
           <input
             type="password"
             id="inputPassword2"
-            aria-describedby="passwordHelpInline"
             className="form-control"
             onChange={handleConfirmPasswordChange}
           />

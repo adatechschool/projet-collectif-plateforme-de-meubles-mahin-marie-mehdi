@@ -4,20 +4,20 @@ import FicheDetail from "../components/FicheDetail";
 
 const Produit = () => {
   return (
-    <div class="container">
-      <div class="row">
-        <div class="col-6 text-center mt-4">
+    <div className="container">
+      <div className="row">
+        <div className="col-6 text-center mt-4">
           <h1>Nom du meuble</h1>
         </div>
-        <div class="col-6 text-center mt-4">
+        <div className="col-6 text-center mt-4">
           <h1>Description</h1>
         </div>
       </div>
-      <div class="row">
-        <div class="col-6 text-center">
+      <div className="row">
+        <div className="col-6 text-center">
           <Carousel />
         </div>
-        <div class="col-6">
+        <div className="col-6">
           <FicheDetail />
         </div>
       </div>

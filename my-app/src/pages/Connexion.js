@@ -12,7 +12,7 @@ const Connexion = () => {
       <ButtonConnexion />
       <p className="text-center">
         Vous n'avez pas de compte ?
-        <Link to="/inscription" className="nav-link">
+        <Link to="/inscription" className="nav-link" id="signIn">
           Inscrivez-vous ici.
         </Link>
       </p>

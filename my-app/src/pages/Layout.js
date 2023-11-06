@@ -1,6 +1,9 @@
 import { Outlet, Link } from "react-router-dom";
 import logo from "../assets/images/COPMEBA.png";
 
+// Composant Bootstrap pour la navbar
+// Il faut écrire "className", et non "class" car "class" est un mot réservé en JS
+// "Style" s'écrit toujours avec un S majuscule
 const Layout = () => {
   return (
     <>
@@ -24,6 +27,8 @@ const Layout = () => {
         <div className="collapse navbar-collapse" id="navbarNavDropdown">
           <ul className="navbar-nav ml-auto">
             <li className="nav-item active">
+              {/* Link to = chemin vers lequel on se dirige, définit par index.js */}
+
               <Link to="./accueil" className="nav-link">
                 Accueil<span className="sr-only"></span>
               </Link>

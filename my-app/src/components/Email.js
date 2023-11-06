@@ -26,7 +26,12 @@ const Email = () => {
               </label>
               <div className="input-group">
                 <div className="input-group-prepend">
-                  <div className="input-group-text">@</div>
+                  <div
+                    className="input-group-text"
+                    Style="background-color: lightgrey;"
+                  >
+                    @
+                  </div>
                 </div>
                 <input
                   type="text"

@@ -23,19 +23,7 @@ code {
   background-color: none;
 }
 
-.carousel {
-  width: 550px;
-  height: auto;
-  align-items: center;
-}
-
-.carousel-item {
-  width: 550px;
-  height: auto;
-  align-items: center;
-}
-
-.colorisBtn {
+#colorisBtn {
   width: 30px;
   height: 30px;
   border-radius: 50px;
@@ -45,11 +33,6 @@ code {
   border-radius: 25px;
 }
 
-.imageBtn {
-  width: 460px;
-  height: auto;
-}
-=======
 .scrollable-table {
   max-height: 16rem; /* Ajustez la hauteur maximale en pixels selon vos besoins */
   overflow-y: auto; /* Active la barre de défilement verticale lorsque nécessaire */
@@ -64,4 +47,12 @@ code {
 #card {
   width: 200px;
   height: auto;
+}
+
+#signIn {
+  text-decoration: underline;
+}
+
+#signUp {
+  text-decoration: underline;
 }
