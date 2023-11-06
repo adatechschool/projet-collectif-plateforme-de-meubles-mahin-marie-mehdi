@@ -2,6 +2,7 @@
 const express = require('express');
 const passport = require('passport');
 const router = express.Router();
+const app = express();
 // Define a route for authentication
 app.post('/login', passport.authenticate('local'), (req, res) => {
   // The user has been authenticated

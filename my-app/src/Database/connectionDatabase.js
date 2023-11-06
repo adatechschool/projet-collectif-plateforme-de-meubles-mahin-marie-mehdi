@@ -1,22 +1,12 @@
 const mysql = require("mysql");
 
-function connexionDatabase(){
-    const connection = mysql.createConnection({
+
+    const connexionDatabase = mysql.createConnection({
         host: 'localhost',
         user: 'root',
-        // port: 3306,
+        port: 3306,
         password: process.env.password,
         database: 'copameba'
     })
 
-    // connection.connect()
-
-    return connection
-}
-
-
-
 module.exports = connexionDatabase;
-
-
-
