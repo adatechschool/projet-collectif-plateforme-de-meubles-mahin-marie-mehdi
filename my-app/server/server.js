@@ -12,13 +12,13 @@ app.listen(8080, () => {
 });
 
 connexionDatabase.connect()
-// connexionDatabase.query('SELECT * FROM product_category', [], (erreur, resultat)=>{
-//         if(erreur){
-//           console.log(erreur);
-//         } else {
-//           // res.status(200).render("../public/index.js", {resultat});
-//           console.log("Hello world", resultat);
-//         }
-//       })
+connexionDatabase.query('SELECT * FROM product_category', [], (erreur, resultat)=>{
+        if(erreur){
+          console.log(erreur);
+        } else {
+          res.status(200).render("../public/index.js", {resultat});
+          console.log("Hello world", resultat);
+        }
+      })
 
-// console.log(process.env.password);
+console.log(process.env.password);
