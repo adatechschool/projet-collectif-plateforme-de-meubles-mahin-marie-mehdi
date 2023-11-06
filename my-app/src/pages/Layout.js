@@ -45,6 +45,7 @@ const Layout = () => {
                 data-toggle="dropdown"
                 aria-haspopup="true"
                 aria-expanded="false"
+                Style="cursor:pointer;"
               >
                 Compte
               </span>
