@@ -6,9 +6,11 @@ import img5 from "../assets/img/table_jdr_5.jpg";
 import img6 from "../assets/img/table_jdr_6.jpg";
 import img7 from "../assets/img/table_jdr_7.jpg";
 
-function Carousel({ images }) {
+// productImages est là pour intégrer les images des produits venant de la BDD
+function Carousel({ productImages }) {
   return (
     <div className="d-flex flex-column justify-content-center">
+      
       {/* Carousel */}
 
       <div
@@ -16,7 +18,7 @@ function Carousel({ images }) {
         className="carousel slide row"
         data-ride="carousel"
       >
-        <ol className="carousel-indicators justify-content-center">
+        <ol className="carousel-indicators">
           <li
             data-target="#carouselExampleIndicators"
             data-slide-to="0"
@@ -114,7 +116,7 @@ function Carousel({ images }) {
 
       {/* Thumbnails */}
 
-      <div className="thumb d-flex flex-row flex-nowrap">
+      <div className="thumb d-flex flex-row flex-nowrap justify-content-top">
         <img src={img1} alt="Description" className="img-thumbnail" />
         <img src={img2} alt="Description" className="img-thumbnail" />
         <img src={img3} alt="Description" className="img-thumbnail" />
