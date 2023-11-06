@@ -1,12 +1,10 @@
-const mysql = require("mysql");
+const sqlite3 = require('sqlite3').verbose()
+const path = require('path');
 
-
-    const connexionDatabase = mysql.createConnection({
-        host: 'localhost',
-        user: 'root',
-        port: 3306,
-        password: process.env.password,
-        database: 'copameba'
-    })
-
-module.exports = connexionDatabase;
+const db = new sqlite3.Database("copameba.db", err => {
+  if (err) {
+    return console.error(err.message);
+  }
+  console.log("Connexion réussie à la base de données 'copameba.db'");
+});
+module.exports = db;
