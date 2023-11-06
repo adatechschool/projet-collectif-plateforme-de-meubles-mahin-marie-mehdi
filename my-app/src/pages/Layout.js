@@ -7,6 +7,7 @@ const Layout = () => {
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <img  id="logo" src={logo} alt="logo" className="thumbnail"></img>
         <h1 className="navbar-brand" Style="padding-bottom:0;">COPAMEBA</h1>
+
         <button
           className="navbar-toggler"
           type="button"
@@ -41,7 +42,7 @@ const Layout = () => {
                 Compte
               </span>
               <div
-                className="dropdown-menu"
+                className="dropdown-menu float-right"
                 aria-labelledby="navbarDropdownMenuLink"
               >
                 <Link to="./connexion" className="dropdown-item">
