@@ -2,6 +2,7 @@ const express = require("express");
 
 const app = express();
 require("dotenv").config();
+// db est défini dans la page connectionDatabase
 const db = require("../src/Database/connectionDatabase");
 const router = require('../server/Routes/product.routes')
 
