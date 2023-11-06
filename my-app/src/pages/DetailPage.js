@@ -14,7 +14,7 @@ const Produit = () => {
         </div>
       </div>
       <div className="row">
-        <div className="col-6 text-center">
+        <div className="col-6">
           <Carousel />
         </div>
         <div className="col-6">
