@@ -8,6 +8,8 @@ const express = require("express");
 
 const app = express();
 
+// Todo 1 : Configurer la requete de connexion
+// Todo 2 : Configurer la requete d'inscription
 // Configure the local authentication policy
 passport.use(
   new LocalStrategy(
