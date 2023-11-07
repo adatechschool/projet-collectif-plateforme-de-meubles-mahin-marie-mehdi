@@ -16,7 +16,7 @@ export default function App() {
     // Le Router permet de gérer les routes de l'application (les pages) et de les afficher
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Navigate to="/accueil" replace />} />
+        <Route path="/" element={<Navigate to="/accueil" replace />} /> {/* added to redirect to accueil page on first open */}
         <Route path="/" element={<Layout />}>
           {/* Explications: path = ce qui s'ajoute dans l'url; element = quelle
           page va être renvoyée pour cet url */}
