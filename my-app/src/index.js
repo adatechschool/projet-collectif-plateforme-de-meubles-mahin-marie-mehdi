@@ -1,7 +1,7 @@
 // React fonctionne par import de librairie ou de composants extérieurs au fichier
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import "./styles/index.css";
 import reportWebVitals from "./reportWebVitals";
 import Layout from "./pages/Layout";
@@ -16,6 +16,7 @@ export default function App() {
     // Le Router permet de gérer les routes de l'application (les pages) et de les afficher
     <BrowserRouter>
       <Routes>
+        <Route path="/" element={<Navigate to="/accueil" replace />} />
         <Route path="/" element={<Layout />}>
           {/* Explications: path = ce qui s'ajoute dans l'url; element = quelle
           page va être renvoyée pour cet url */}
