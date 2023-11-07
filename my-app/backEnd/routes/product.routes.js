@@ -11,7 +11,7 @@ router.get("/products", (req, res) => {
     const sql = "SELECT * FROM Product ORDER BY id";
     req.db.all(sql, [], (err, rows) => {
       if (err) {
-        res.status(404).json({ message: "Cannot find product" });
+        res.status(404).json({ message: "Cannot find products" });
       }
       res.json(rows);
     });
@@ -27,7 +27,27 @@ router.get("/products/:id", (req, res) => {
     const sql = "SELECT * FROM Product WHERE id = ?";
     req.db.get(sql, id, (err, rows) => {
       if (err) {
-        res.status(404).json({ message: "Cannot find product" });
+        res
+          .status(404)
+          .json({ message: "Cannot find product that matches this id" });
+      }
+      res.json(rows);
+    });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
+
+// GET all products that match a category_id
+router.get("/products_category/:id", (req, res) => {
+  const id = req.params.id;
+  try {
+    const sql = "SELECT * FROM Product WHERE category_id = ?";
+    req.db.get(sql, id, (err, rows) => {
+      if (err) {
+        res
+          .status(404)
+          .json({ message: "Cannot find product that matches this category" });
       }
       res.json(rows);
     });
