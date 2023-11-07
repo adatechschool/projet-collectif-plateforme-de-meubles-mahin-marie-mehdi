@@ -56,4 +56,72 @@ router.get("/products_category/:id", (req, res) => {
   }
 });
 
+// GET a single product that matches status = 0 (= waiting for validation)
+router.get("/products_status/0", (req, res) => {
+  const id = req.params.id;
+  try {
+    const sql = "SELECT * FROM Product WHERE status = 0";
+    req.db.get(sql, id, (err, rows) => {
+      if (err) {
+        res
+          .status(404)
+          .json({ message: "Cannot find product that matches status 0" });
+      }
+      res.json(rows);
+    });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
+
+// GET a single product that matches status = 1 (= validated)
+router.get("/products_status/1", (req, res) => {
+  const id = req.params.id;
+  try {
+    const sql = "SELECT * FROM Product WHERE status = 1";
+    req.db.get(sql, id, (err, rows) => {
+      if (err) {
+        res
+          .status(404)
+          .json({ message: "Cannot find product that matches status 1" });
+      }
+      res.json(rows);
+    });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
+
+// UPDATE a product status to 1 (= validated)
+router.update("/update_status/", (req, res) => {
+  const id = req.params.id;
+  try {
+    const sql = "UPDATE product SET status = 1 WHERE id = ?";
+    req.db.get(sql, id, (err, rows) => {
+      if (err) {
+        res.status(404).json({ message: "Cannot update status" });
+      }
+      res.json(rows);
+    });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
+
+// UPDATE a product status to 1 (= validated)
+router.update("/delete_product/", (req, res) => {
+  const id = req.params.id;
+  try {
+    const sql = "DELETE FROM product WHERE id = ?";
+    req.db.get(sql, id, (err, rows) => {
+      if (err) {
+        res.status(404).json({ message: "Cannot delete product" });
+      }
+      res.json(rows);
+    });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
+
 module.exports = router;
