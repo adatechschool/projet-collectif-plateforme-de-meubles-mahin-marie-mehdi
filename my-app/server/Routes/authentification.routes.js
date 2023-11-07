@@ -1,4 +1,5 @@
 // Essential Imports
+// Clem : je ne touche pas à cette page, elle ne marche sans doute pas et n'est pas appelée
 const express = require('express');
 const passport = require('passport');
 const router = express.Router();
