@@ -6,7 +6,7 @@ const express = require("express");
 const router = express.Router();
 
 // GET all products
-router.get("/product", (req, res) => {
+router.get("/products", (req, res) => {
   try {
     const sql = "SELECT * FROM Product ORDER BY id";
     req.db.all(sql, [], (err, rows) => {
@@ -21,7 +21,7 @@ router.get("/product", (req, res) => {
 });
 
 // GET a single product by ID
-router.get("/product/:id", (req, res) => {
+router.get("/products/:id", (req, res) => {
   const id = req.params.id;
   try {
     const sql = "SELECT * FROM Product WHERE id = ?";
