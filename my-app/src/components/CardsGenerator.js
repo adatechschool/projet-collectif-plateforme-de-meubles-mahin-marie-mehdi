@@ -8,7 +8,7 @@ function CardsGenerator() {
 
   {/* Replaced teh mock data with an appel to the API endpoint for products using axios */}
   useEffect(() => {
-    axios.get('/products')
+    axios.get('http://localhost:8080/products')
       .then(response => {
         setStockData(response.data);
       })
@@ -41,7 +41,7 @@ function CardsGenerator() {
                 <p className="card-text">{product.description}</p>
               </div>
               <ul className="list-group list-group-flush">
-                <li className="list-group-item">{product.dimension}</li>
+                <li className="list-group-item">{product.dimensions}</li>
                 <li className="list-group-item">{product.material}</li>
                 <li className="list-group-item">{product.color}</li>
               </ul>
