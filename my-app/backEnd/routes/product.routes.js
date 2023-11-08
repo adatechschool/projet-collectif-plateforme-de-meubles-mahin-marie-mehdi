@@ -93,7 +93,7 @@ router.get("/products_status/1", (req, res) => {
 });
 
 // UPDATE a product status to 1 (= validated)
-router.update("/update_status/", (req, res) => {
+router.put("/update_status/", (req, res) => {
   const id = req.params.id;
   try {
     const sql = "UPDATE product SET status = 1 WHERE id = ?";
@@ -108,8 +108,8 @@ router.update("/update_status/", (req, res) => {
   }
 });
 
-// UPDATE a product status to 1 (= validated)
-router.update("/delete_product/", (req, res) => {
+// DELETE product from the table
+router.delete("/delete_product/", (req, res) => {
   const id = req.params.id;
   try {
     const sql = "DELETE FROM product WHERE id = ?";
