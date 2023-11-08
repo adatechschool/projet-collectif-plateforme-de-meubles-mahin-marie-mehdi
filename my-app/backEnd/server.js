@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors");
 
 const app = express();
 require("dotenv").config();
@@ -12,7 +13,7 @@ app.use(function (req, res, next) {
   req.db = db;
   next();
 });
-
+app.use(cors());
 app.use(router);
 app.use(catRouter);
 app.use(userRouter);
