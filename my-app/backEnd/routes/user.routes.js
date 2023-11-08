@@ -18,3 +18,7 @@ userRouter.post("/inscription", (req, res) => {
 });
 
 module.exports = userRouter;
+
+
+// Ajouter le parcours connexion
+// Vérifier si je peux ou non m'inscrirre 2 fois avec la même adresse mail.
