@@ -36,3 +36,8 @@
     transform: rotate(360deg);
   }
 }
+
+.thumb {
+  width: 20px; /* Vous pouvez ajuster cette valeur */
+  height: auto;
+}

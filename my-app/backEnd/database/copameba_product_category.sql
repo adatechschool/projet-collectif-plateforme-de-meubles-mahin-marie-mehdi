@@ -1,0 +1,4 @@
+CREATE TABLE IF NOT EXISTS product_category (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name varchar(45) NOT NULL
+)
