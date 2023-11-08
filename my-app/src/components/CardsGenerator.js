@@ -29,7 +29,7 @@ function CardsGenerator() {
               <div>
                 <img
                   className="card-img-top"
-                  src={logo}
+                  src={product.picture}
                   alt="Carte des meubles"
                 />
               </div>
