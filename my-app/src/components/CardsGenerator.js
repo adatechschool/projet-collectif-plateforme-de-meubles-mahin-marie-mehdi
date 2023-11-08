@@ -6,11 +6,12 @@ import { Link } from "react-router-dom";
 function CardsGenerator() {
   const [stockData, setStockData] = useState([]);
 
-  {/* Replaced teh mock data with an appel to the API endpoint for products using axios */}
+  /* Replaced the mock data with an appel to the API endpoint for products using axios */
   useEffect(() => {
     axios.get('http://localhost:8080/products')
       .then(response => {
         setStockData(response.data);
+        console.log(response.data)
       })
       .catch(error => {
         console.error('There was an error!', error);
@@ -34,7 +35,7 @@ function CardsGenerator() {
                 />
               </div>
               <div className="card-body">
-                <Link to="/DetailPage">
+                <Link to={`/DetailPage/${product.id}`}>
                   <h5 className="card-title">{product.name}</h5>
                 </Link>
 
