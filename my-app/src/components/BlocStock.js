@@ -9,15 +9,17 @@ function BlocStock() {
   const [stockData, setStockData] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:8080/products_status/1')
-    .then(response => {
-      setStockData(response.data);
-    })
-    .catch(error => {
-      console.error('There was an error!', error);
-    });
+    axios
+      .get("http://localhost:8080/products_status/1")
+      .then((response) => {
+        setStockData(response.data);
+      })
+      .catch((error) => {
+        console.error("There was an error!", error);
+      });
   }, []);
 
+  console.log(stockData);
   const tableClass = stockData.length > 4 ? "container scrollable-table" : "";
 
   return (
@@ -35,18 +37,19 @@ function BlocStock() {
             </tr>
           </thead>
           <tbody>
-            {stockData.map((product) => (
-              <tr key={product.id}>
-                <td>{product.id}</td>
-                <td>{product.name}</td>
-                <td>1</td>
-                <td>{product.material}</td>
+            {stockData &&
+              stockData.map((product, index) => (
+                <tr key={product.id}>
+                  <td>{product.id}</td>
+                  <td>{product.name}</td>
+                  <td>1</td>
+                  <td>{product.material}</td>
 
-                <ModifyButton />
+                  <ModifyButton />
 
-                <DeleteButton />
-              </tr>
-            ))}
+                  <DeleteButton />
+                </tr>
+              ))}
           </tbody>
         </Table>
       </div>
