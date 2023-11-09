@@ -4,6 +4,7 @@ const userRouter = express.Router();
 // POST user into user table
 userRouter.post("/inscription", (req, res) => {
   try {
+    console.log(req.body)
     const sql =
       "INSERT INTO user (firstName, lastName, email, password) VALUES (?,?,?,?)";
     req.db.run(sql, [], (err, rows) => {
