@@ -1,62 +1,30 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import "bootstrap/js/dist/dropdown";
 import "bootstrap/js/dist/collapse";
+import { Link } from "react-router-dom";
+import axios from "axios";
+
 function Sidebar() {
+  const [stockData, setStockData] = useState([]);
+
+  const handleCategoryClick = (category) => {
+    axios.get(`http://localhost:8080/products_category/${category}`)
+      .then(response => {
+        setStockData(response.data);
+        console.log(response.data);
+      })
+      .catch(error => {
+        console.error('There was an error!', error);
+      });
+  };
+  
   return (
     <div className="col-auto col-md-2 bg-dark d-flex flex-column justify-content-between min-vh-100">
       <div className="ms-4 d-flex align-items-center text-white d-none d-sm-inline">
         <span className="f5-4">Filtres</span>
         <hr className="text-white d-none d-sm-block"></hr>
-        {/* <ul className="nav nav-pills flex-column" id="parentM">
-          <li className="nav-item my-1">
-            <a href="#" className="nav-link text-white" aria-current="page">
-              <i className="bi bi-speedometer2"></i>
-              <span className="ms-2">Catégories</span>
-            </a>
-            <ul className="nav collapse ms-2 flex-column" id="submenu1" data-bs-parent="#parentM">
-            <li className="nav-item">
-              <a className="nav-link text-white" href="#" data-bs-toggle="collapse" data-bs-target="#submenu1" aria-expanded="false" aria-controls="submenu1">
-                Item1test
-              </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link text-white" href="#">
-                  SUbItem
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li className="nav-item my-1">
-            <a
-              href="#submenu"
-              className="nav-link text-white"
-              data-bs-toggle="collapse"
-              aria-current="page"
-            >
-              <i className="bi bi-grid"></i>
-              <span className="ms-2">Prix</span>
-              <i className="bi bi-arrow-down-short ms-3"></i>
-            </a>
-            <ul
-              className="nav collapse ms-2 flex-column"
-              id="submenu"
-              data-bs-parent="#parentM"
-            >
-              <li className="nav-item">
-                <a className="nav-link text-white" href="#" aria-current="page">
-                  Item1test
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link text-white" href="#">
-                  Item2Test
-                </a>
-              </li>
-            </ul>
-          </li>
-        </ul> */}
         <div className="dropdown-open">
           <a
             className="btn border-none dropdown-toggle text-white"
@@ -70,10 +38,10 @@ function Sidebar() {
             <span className="fs-5 ms-3">Catégories</span>
           </a>
           <div className="dropdown-menu" aria-labelledby="triggerId">
-            <a className="dropdown-item" href="#">
+            <a className="dropdown-item" onClick={() => handleCategoryClick(1)}>
               Chaises
             </a>
-            <a className="dropdown-item" href="#">
+            <a className="dropdown-item" href="#" onClick={() => handleCategoryClick(2)}>
               Tables
             </a>
             <a className="dropdown-item" href="#">
@@ -193,4 +161,5 @@ function Sidebar() {
     </div>
   );
 }
+
 export default Sidebar;
