@@ -28,7 +28,8 @@ const Inscription = () => {
           console.log(response.data);
         })
         .catch(error => {
-          console.error('There was an error!', error);
+          console.error('Le mail est déjà utilisé', error);
+          alert ('Le mail est déjà utilisé');
         });
     } else {
       setErrorMessage("Les mots de passe ne correspondent pas");
