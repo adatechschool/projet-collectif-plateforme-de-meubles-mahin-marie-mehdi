@@ -78,11 +78,8 @@ router.get("/products_status/0", (req, res) => {
 router.get("/products_status/1", (req, res) => {
   try {
     const sql = "SELECT * FROM Product WHERE status = 1";
-<<<<<<< HEAD
-    req.db.all(sql, id, (err, rows) => {
-=======
+
     req.db.all(sql, (err, rows) => {
->>>>>>> 974972fb83a8e020939828b9dc83d2ebf929783a
       if (err) {
         res
           .status(500)
@@ -97,7 +94,7 @@ router.get("/products_status/1", (req, res) => {
 });
 
 // UPDATE a product status to 1 (= validated)
-router.put("/update_status/", (req, res) => {
+router.put("/update_status/:id", (req, res) => {
   const id = req.params.id;
   try {
     const sql = "UPDATE product SET status = 1 WHERE id = ?";
