@@ -1,68 +1,4 @@
-// import React, { useState, useEffect } from "react";
-// import ConnexionPassword from "../components/ConnexionPassword";
-// import { Link } from "react-router-dom";
-// import Email from "../components/Email";
-// import axios from "axios";
-
-// const Connexion = () => {
-//   const [password, setPassword] = useState("");
-//   const [errorMessage, setErrorMessage] = useState("");
-//   const [email, setEmail] = useState("");
-
-//   // appel api à réaliser
-//   const [stockData, setStockData] = useState([]);
-
-//   const HandleConnexionClick = (email) => {
-
-
-//     {/* Replaced teh mock data with an appel to the API endpoint for products using axios */}
-//     useEffect((email) => {
-//       axios.get(`http://localhost:8080/user/:${email}`)
-//         .then(response => {
-//           setStockData(response.data);
-//           console.log(response.data);
-//         })
-//         .catch(error => {
-//           console.error('There was an error!', error);
-//         });
-//     }, []);
-
-//     if (password === stockData.password) {
-//       // TODO TODO TODO TODO TODO TODO
-//       // Les mots de passe correspondent, effectuez l'inscription ici
-//       // Mettre ici la requête au serveur pour enregistrer les données de l'utilisateur
-//       setErrorMessage("Vous êtes connecté");
-//     } else {
-//       setErrorMessage("Echec de la connexion, veuillez vérifier vos identifiant");
-//     }
-//   }
-
-//   return (
-//     <div className="text-center">
-//       <h1>Connexion</h1>
-//       <Email setEmail={setEmail}/>
-//       <ConnexionPassword setPassword={setPassword} />
-//       <button
-//           className="btn btn-secondary btn-lg"
-//           onClick={HandleConnexionClick}
-//         >
-//           Se connecter
-//         </button>
-//       <p className="text-center">
-//         Vous n'avez pas de compte ?
-//         <Link to="/inscription" className="nav-link" id="signIn">
-//           Inscrivez-vous ici.
-//         </Link>
-//       </p>
-//       errorMessage ? <p>{errorMessage}</p> : null
-//     </div>
-//   );
-// };
-
-// export default Connexion;
-
-
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import ConnexionPassword from "../components/ConnexionPassword";
 import { Link } from "react-router-dom";
 import Email from "../components/Email";
@@ -72,37 +8,32 @@ const Connexion = () => {
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [email, setEmail] = useState("");
-  const [stockData, setStockData] = useState(null);
 
-  useEffect(() => {
-    // Appel à l'API pour obtenir les données utilisateur
-    if (email) {
-      axios.get(`http://localhost:8080/user/${email}`)
-        .then(response => {
-          setStockData(response.data);
-          console.log(response.data);
-        })
-        .catch(error => {
-          console.error('There was an error!', error);
-        });
-    }
-  }, [email]);
+  // Appel à l'API pour obtenir les données utilisateur
 
   const HandleConnexionClick = () => {
-    if (stockData && password === stockData.password) {
-      // Les mots de passe correspondent, effectuez l'inscription ici
-      // Mettre ici la requête au serveur pour enregistrer les données de l'utilisateur
-      setErrorMessage("Vous êtes connecté");
-    } else {
-      setErrorMessage("Échec de la connexion, veuillez vérifier vos identifiants");
-    }
-  }
+    axios
+      .get(`http://localhost:8080/user/${email}`)
+      .then((response) => {
+        // On récupère la réponse sous forme d'objet. On un seul objet en fonction de l'email.
+        if (response.data && password === response.data.password) {
+          // Ici on s'assure que response.data existe, puis on compare l'input au mot de passe dans la bdd
+          setErrorMessage("Vous êtes connecté");
+        } else {
+          setErrorMessage(
+            "Échec de la connexion, veuillez vérifier vos identifiants"
+          );
+        }
+      })
+      .catch((error) => {
+        console.error("There was an error!", error);
+      });
+  };
 
   return (
     <div className="text-center">
       <h1>Connexion</h1>
       <Email setEmail={setEmail} />
-      {console.log("email:" + email)}
       <ConnexionPassword setPassword={setPassword} />
       <button
         className="btn btn-secondary btn-lg"
