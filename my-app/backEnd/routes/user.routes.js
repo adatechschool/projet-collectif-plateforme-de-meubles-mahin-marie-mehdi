@@ -4,12 +4,13 @@ const userRouter = express.Router();
 // POST user into user table
 userRouter.post("/inscription", (req, res) => {
   try {
-    console.log(req.body)
+    console.log("inscription", req.body)
     const sql =
-      "INSERT INTO user (firstName, lastName, email, password) VALUES (?,?,?,?)";
+      `INSERT INTO user (firstName, lastName, email, password) VALUES ('${req.body.firstName}', '${req.body.lastName}', '${req.body.email}','${req.body.password}')`;
     req.db.run(sql, [], (err, rows) => {
       if (err) {
-        res.status(404).json({ message: "Cannot create user" });
+        console.log(err);
+        res.status(500).json({ message: "Cannot create user" });
       }
       res.json(rows);
     });
