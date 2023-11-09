@@ -1,7 +1,7 @@
 // Ce composant est utilisé dans la page Admin.js
 import React, { useState, useEffect } from "react";
 import { Table } from "react-bootstrap";
-import mockStockData from "./mockStockData";
+import axios from "axios";
 import ModifyButton from "../components/ModifyButton";
 import DeleteButton from "../components/DeleteButton";
 
@@ -9,10 +9,13 @@ function BlocStock() {
   const [stockData, setStockData] = useState([]);
 
   useEffect(() => {
-    // Pour l'instant j'utilise mon fichier mockStockData.js qui me permet de simuler l'appel API
-    // TODO : Modifier l'appel API pour obtenir l'affichage des données souhaitées.
-    // La boucle qui permet de créer les lignes est déjà réalisé.
-    setStockData(mockStockData);
+    axios.get('http://localhost:8080/products_status/1')
+    .then(response => {
+      setStockData(response.data);
+    })
+    .catch(error => {
+      console.error('There was an error!', error);
+    });
   }, []);
 
   const tableClass = stockData.length > 4 ? "container scrollable-table" : "";
@@ -25,9 +28,9 @@ function BlocStock() {
           <thead>
             <tr>
               <th>ID</th>
-              <th>Nom du Produit</th>
+              <th>Nom du produit</th>
               <th>Quantité</th>
-              <th>Date de Création</th>
+              <th>Matière</th>
               <th>Actions</th>
             </tr>
           </thead>
@@ -35,9 +38,9 @@ function BlocStock() {
             {stockData.map((product) => (
               <tr key={product.id}>
                 <td>{product.id}</td>
-                <td>{product.nom_du_produit}</td>
-                <td>{product.quantité}</td>
-                <td>{product.date_de_création}</td>
+                <td>{product.name}</td>
+                <td>1</td>
+                <td>{product.material}</td>
 
                 <ModifyButton />
 

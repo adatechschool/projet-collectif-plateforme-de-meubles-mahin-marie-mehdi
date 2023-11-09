@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import logo from "../assets/images/COPMEBA.png";
 import { Link } from "react-router-dom";
 
 function CardsGenerator() {
   const [stockData, setStockData] = useState([]);
 
-  {/* Replaced teh mock data with an appel to the API endpoint for products using axios */}
+/* Replaced teh mock data with an appel to the API endpoint for products using axios */
   useEffect(() => {
     axios.get('http://localhost:8080/products')
       .then(response => {
