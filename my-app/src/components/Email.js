@@ -1,5 +1,8 @@
 // Composant Email
-const Email = () => {
+const Email = ({setEmail}) => {
+  const handleEmailChange= (event) => {
+    setEmail(event.target.value);
+  };
   
   return (
     <div
@@ -15,6 +18,7 @@ const Email = () => {
             className="form-control"
             id="inlineFormInputEmail"
             placeholder="exemple@exemple.com"
+            onChange={handleEmailChange}
           />
         </div>
       </div>
