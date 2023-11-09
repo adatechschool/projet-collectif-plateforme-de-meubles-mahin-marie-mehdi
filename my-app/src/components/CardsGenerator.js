@@ -7,10 +7,12 @@ function CardsGenerator() {
 
   /* Replaced teh mock data with an appel to the API endpoint for products using axios */
   useEffect(() => {
-    axios
-      .get("http://localhost:8080/products")
-      .then((response) => {
-        setStockData(response.data);
+
+    axios.get('http://localhost:8080/products')
+      .then(response => {
+        console.log(response.data);
+        const filteredData = response.data.filter(product => product.status === 1);
+        setStockData(filteredData);
       })
       .catch((error) => {
         console.error("There was an error!", error);
