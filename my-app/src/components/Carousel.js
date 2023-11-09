@@ -1,13 +1,25 @@
-import img1 from "../assets/img/table_jdr_1.jpg";
-import img2 from "../assets/img/table_jdr_2.jpg";
-import img3 from "../assets/img/table_jdr_3.jpg";
-import img4 from "../assets/img/table_jdr_4.jpg";
-import img5 from "../assets/img/table_jdr_5.jpg";
-import img6 from "../assets/img/table_jdr_6.jpg";
-import img7 from "../assets/img/table_jdr_7.jpg";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import axios from "axios";
 
-// productImages est là pour intégrer les images des produits venant de la BDD
-function Carousel({ productImages }) {
+function Carousel() {
+  const { id } = useParams();
+  let [result, setResult] = useState({});
+  // console.log({ id });
+  useEffect(() => {
+    axios
+      .get(`http://localhost:8080/products/${id}`)
+      .then((response) => {
+        setResult(response.data);
+        console.log(response);
+        console.log(result);
+      })
+      .catch((error) => {
+        console.error("There was an error!", error);
+      });
+  }, []);
+
+  // productImages est là pour intégrer les images des produits venant de la BDD
   return (
     <div className="d-flex flex-column justify-content-center">
       {/* Carousel */}
@@ -34,55 +46,54 @@ function Carousel({ productImages }) {
           <div className="carousel-item active">
             <img
               className="d-block w-100 img-fluid"
-              src={img1}
+              src={result.picture}
               alt="First slide"
             />
             <div className="carousel-caption d-none d-md-block">
-              <p>C'est oune potite table</p>
+              <p>{result.description}</p>
             </div>
           </div>
           <div className="carousel-item">
             <img
               className="d-block w-100 img-fluid"
-              src={img2}
+              src={result.picture}
               alt="Second slide"
             />
           </div>
           <div className="carousel-item">
             <img
               className="d-block w-100 img-fluid"
-              src={img3}
+              src={result.picture}
               alt="Third slide"
             />
           </div>
           <div className="carousel-item">
             <img
               className="d-block w-100 img-fluid"
-              src={img4}
+              src={result.picture}
               alt="Fourth slide"
             />
             <div className="carousel-caption d-none d-md-block">
-              <p>Et là c'est des poutits dés</p>
             </div>
           </div>
           <div className="carousel-item">
             <img
               className="d-block w-100 img-fluid"
-              src={img5}
+              src={result.picture}
               alt="Fifth slide"
             />
           </div>
           <div className="carousel-item">
             <img
               className="d-block w-100 img-fluid"
-              src={img6}
+              src={result.picture}
               alt="Sixth slide"
             />
           </div>
           <div className="carousel-item">
             <img
               className="d-block w-100 img-fluid"
-              src={img7}
+              src={result.picture}
               alt="Seventh slide"
             />
           </div>
@@ -116,11 +127,11 @@ function Carousel({ productImages }) {
       {/* Thumbnails */}
 
       <div className="thumb d-flex flex-row flex-nowrap justify-content-top">
-        <img src={img1} alt="Description" className="img-thumbnail" />
-        <img src={img2} alt="Description" className="img-thumbnail" />
-        <img src={img3} alt="Description" className="img-thumbnail" />
-        <img src={img4} alt="Description" className="img-thumbnail" />
-        <img src={img5} alt="Description" className="img-thumbnail" />
+        <img src={result.picture} alt="Description" className="img-thumbnail" />
+        <img src={result.picture} alt="Description" className="img-thumbnail" />
+        <img src={result.picture} alt="Description" className="img-thumbnail" />
+        <img src={result.picture} alt="Description" className="img-thumbnail" />
+        <img src={result.picture} alt="Description" className="img-thumbnail" />
       </div>
     </div>
   );
