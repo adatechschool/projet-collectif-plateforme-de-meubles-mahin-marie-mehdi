@@ -1,20 +1,11 @@
 // Ce composant est utilisé dans la page Admin.js
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Table } from "react-bootstrap";
-import mockStockData from "./mockStockData";
+// import axios from "axios";
 import ModifyButton from "../components/ModifyButton";
 import DeleteButton from "../components/DeleteButton";
 
-function BlocStock() {
-  const [stockData, setStockData] = useState([]);
-
-  useEffect(() => {
-    // Pour l'instant j'utilise mon fichier mockStockData.js qui me permet de simuler l'appel API
-    // TODO : Modifier l'appel API pour obtenir l'affichage des données souhaitées.
-    // La boucle qui permet de créer les lignes est déjà réalisé.
-    setStockData(mockStockData);
-  }, []);
-
+function BlocStock({stockData, updateData}) {
   const tableClass = stockData.length > 4 ? "container scrollable-table" : "";
 
   return (
@@ -25,23 +16,23 @@ function BlocStock() {
           <thead>
             <tr>
               <th>ID</th>
-              <th>Nom du Produit</th>
+              <th>Nom du produit</th>
               <th>Quantité</th>
-              <th>Date de Création</th>
+              <th>Matière</th>
               <th>Actions</th>
             </tr>
           </thead>
           <tbody>
-            {stockData.map((product) => (
-              <tr key={product.id}>
-                <td>{product.id}</td>
-                <td>{product.nom_du_produit}</td>
-                <td>{product.quantité}</td>
-                <td>{product.date_de_création}</td>
+            {stockData.map((product, index) => (
+                <tr key={product.id}>
+                  <td>{product.id}</td>
+                  <td>{product.name}</td>
+                  <td>1</td>
+                  <td>{product.material}</td>
 
-                <ModifyButton />
+                  <ModifyButton />
 
-                <DeleteButton />
+                <DeleteButton productId={product.id} onDelete={updateData}/>
               </tr>
             ))}
           </tbody>
