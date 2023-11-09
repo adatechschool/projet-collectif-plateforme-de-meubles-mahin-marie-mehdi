@@ -74,18 +74,22 @@ router.get("/products_status/0", (req, res) => {
   }
 });
 
-// GET a single product that matches status = 1 (= validated)
+// GET all products that matches status = 1 (= validated)
 router.get("/products_status/1", (req, res) => {
-  const id = req.params.id;
   try {
     const sql = "SELECT * FROM Product WHERE status = 1";
+<<<<<<< HEAD
     req.db.all(sql, id, (err, rows) => {
+=======
+    req.db.all(sql, (err, rows) => {
+>>>>>>> 974972fb83a8e020939828b9dc83d2ebf929783a
       if (err) {
         res
-          .status(404)
-          .json({ message: "Cannot find product that matches status 1" });
+          .status(500)
+          .json({ message: "Error retrieving products with status 1" });
+      } else {
+        res.json(rows);
       }
-      res.json(rows);
     });
   } catch (err) {
     res.status(500).json({ message: err.message });

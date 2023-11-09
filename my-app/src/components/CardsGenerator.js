@@ -5,17 +5,18 @@ import { Link } from "react-router-dom";
 function CardsGenerator() {
   const [stockData, setStockData] = useState([]);
 
-/* Replaced teh mock data with an appel to the API endpoint for products using axios */
+  /* Replaced teh mock data with an appel to the API endpoint for products using axios */
   useEffect(() => {
-    axios.get('http://localhost:8080/products')
-      .then(response => {
+    axios
+      .get("http://localhost:8080/products")
+      .then((response) => {
         setStockData(response.data);
       })
-      .catch(error => {
-        console.error('There was an error!', error);
+      .catch((error) => {
+        console.error("There was an error!", error);
       });
   }, []);
-
+  console.log(stockData);
   // Définissez le nombre de colonnes par ligne (4 ou 5, selon votre choix)
   const columnsPerRow = 4;
 
