@@ -79,7 +79,7 @@ router.get("/products_status/1", (req, res) => {
   const id = req.params.id;
   try {
     const sql = "SELECT * FROM Product WHERE status = 1";
-    req.db.get(sql, id, (err, rows) => {
+    req.db.all(sql, id, (err, rows) => {
       if (err) {
         res
           .status(404)

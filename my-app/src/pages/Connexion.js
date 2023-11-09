@@ -102,6 +102,7 @@ const Connexion = () => {
     <div className="text-center">
       <h1>Connexion</h1>
       <Email setEmail={setEmail} />
+      {console.log("email:" + email)}
       <ConnexionPassword setPassword={setPassword} />
       <button
         className="btn btn-secondary btn-lg"
@@ -121,4 +122,3 @@ const Connexion = () => {
 };
 
 export default Connexion;
-
