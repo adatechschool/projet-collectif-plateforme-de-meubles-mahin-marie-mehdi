@@ -1,33 +1,45 @@
 import BlocStock from "../components/BlocStock";
 import PendingProducts from "../components/PendingProducts";
 import axios from "axios";
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 
 //TODO : Cette page ne devra être accessible que pour les comptes ayant des droits spécifiques.
 
 function Admin() {
   const [stockData, setStockData] = useState([]);
+  const [pendingData, setPendingData] = useState([]);
 
-  const updateStockData = () => {
-    console.log("Mise à jour des données dans Admin");
-    // Mettre à jour les données après la suppression d'un produit
-    // Tu peux, par exemple, refaire la requête pour obtenir les données mises à jour
-    axios.get('http://localhost:8080/products_status/1')
-      .then(response => {
-        console.log("Réponse de la mise à jour :", response.data);
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = () =>{
+    axios
+      .get("http://localhost:8080/products_status/1")
+      .then((response) => {
         setStockData(response.data);
+        console.log(response.data)
       })
-      .catch(error => {
-        console.error('Erreur lors de la mise à jour des données après suppression', error);
+      .catch((error) => {
+        console.error("There was an error!", error);
       });
-  };
+    axios
+    .get("http://localhost:8080/products_status/0")
+    .then((response) => {
+      setPendingData(response.data);
+      console.log(response.data)
+    })
+    .catch((error) => {
+      console.error("There was an error!", error);
+    });
+  }
 
   return (
     <div>
-      <BlocStock stockData={stockData}/>
+      <BlocStock stockData={stockData} updateData={fetchData}/>
 
       <p className="row"></p> 
-      <PendingProducts updateData={updateStockData}/>
+      <PendingProducts pendingData={pendingData} updateData={fetchData}/>
     </div>
   );
 }

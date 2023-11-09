@@ -1,36 +1,12 @@
 // Ce composant est appelé dans la page Admin.js
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Table } from "react-bootstrap";
-import axios from "axios";
 import ValidateButton from "../components/ValidateButton";
 import DeleteButton from "../components/DeleteButton";
 
-function PendingProducts() {
-  const [stockData, setStockData] = useState([]);
+function PendingProducts({pendingData, updateData}) {
 
-  const updateData = () => {
-    // Mettre à jour les données après la suppression d'un produit
-    // Tu peux, par exemple, refaire la requête pour obtenir les données mises à jour
-    axios.get('http://localhost:8080/products_status/0')
-      .then(response => {
-        setStockData(response.data);
-      })
-      .catch(error => {
-        console.error('Erreur lors de la mise à jour des données après suppression', error);
-      });
-  };
-
-  useEffect(() => {
-    axios.get('http://localhost:8080/products_status/0')
-      .then(response => {
-        setStockData(response.data);
-      })
-      .catch(error => {
-        console.error('There was an error!', error);
-      });
-  }, []);
-
-  const tableClass = stockData.length > 4 ? "container scrollable-table" : "";
+  const tableClass = pendingData.length > 4 ? "container scrollable-table" : "";
 
   return (
     <div>
@@ -47,7 +23,7 @@ function PendingProducts() {
             </tr>
           </thead>
           <tbody>
-            {stockData.map((product) => (
+            {pendingData.map((product) => (
               <tr key={product.id}>
                 <td>{product.id}</td>
                 <td>{product.name}</td>
