@@ -44,7 +44,7 @@ function BlocStock() {
 
                 <ModifyButton />
 
-                <DeleteButton />
+                <DeleteButton productId={product.id} />
               </tr>
             ))}
           </tbody>
