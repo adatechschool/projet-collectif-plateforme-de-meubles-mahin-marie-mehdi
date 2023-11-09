@@ -8,6 +8,18 @@ import DeleteButton from "../components/DeleteButton";
 function PendingProducts() {
   const [stockData, setStockData] = useState([]);
 
+  const updateData = () => {
+    // Mettre à jour les données après la suppression d'un produit
+    // Tu peux, par exemple, refaire la requête pour obtenir les données mises à jour
+    axios.get('http://localhost:8080/products_status/0')
+      .then(response => {
+        setStockData(response.data);
+      })
+      .catch(error => {
+        console.error('Erreur lors de la mise à jour des données après suppression', error);
+      });
+  };
+
   useEffect(() => {
     axios.get('http://localhost:8080/products_status/0')
       .then(response => {
@@ -42,9 +54,9 @@ function PendingProducts() {
                 <td>1</td>
                 <td>{product.material}</td>
 
-                <ValidateButton />
+                <ValidateButton productId={product.id} onValidate={updateData}/>
 
-                <DeleteButton />
+                <DeleteButton productId={product.id} onDelete={updateData}/>
               </tr>
             ))}
           </tbody>

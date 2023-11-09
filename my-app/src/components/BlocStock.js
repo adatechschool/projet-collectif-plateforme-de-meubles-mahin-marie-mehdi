@@ -8,6 +8,18 @@ import DeleteButton from "../components/DeleteButton";
 function BlocStock() {
   const [stockData, setStockData] = useState([]);
 
+  const updateData = () => {
+    // Mettre à jour les données après la suppression d'un produit
+    // Tu peux, par exemple, refaire la requête pour obtenir les données mises à jour
+    axios.get('http://localhost:8080/products_status/1')
+      .then(response => {
+        setStockData(response.data);
+      })
+      .catch(error => {
+        console.error('Erreur lors de la mise à jour des données après suppression', error);
+      });
+  };
+
   useEffect(() => {
     axios
       .get("http://localhost:8080/products_status/1")
@@ -37,8 +49,7 @@ function BlocStock() {
             </tr>
           </thead>
           <tbody>
-            {stockData &&
-              stockData.map((product, index) => (
+            {stockData.map((product, index) => (
                 <tr key={product.id}>
                   <td>{product.id}</td>
                   <td>{product.name}</td>
@@ -47,7 +58,7 @@ function BlocStock() {
 
                   <ModifyButton />
 
-                <DeleteButton productId={product.id} />
+                <DeleteButton productId={product.id} onDelete={updateData}/>
               </tr>
             ))}
           </tbody>
