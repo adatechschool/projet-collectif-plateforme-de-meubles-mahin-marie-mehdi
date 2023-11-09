@@ -10,6 +10,7 @@ import Connexion from "./pages/Connexion";
 import Inscription from "./pages/Inscription";
 import DetailPage from "./pages/DetailPage";
 import Admin from "./pages/Admin";
+import Category from "./pages/Category";
 
 export default function App() {
   return (
@@ -25,6 +26,7 @@ export default function App() {
           <Route path="inscription" element={<Inscription />} />
           <Route path="detailpage" element={<DetailPage />} />
           <Route path="admin" element={<Admin />} />
+          <Route path="category/:id" element={<Category />} />
         </Route>
       </Routes>
     </BrowserRouter>

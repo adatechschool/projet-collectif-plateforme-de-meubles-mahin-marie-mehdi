@@ -43,7 +43,7 @@ router.get("/products_category/:id", (req, res) => {
   const id = req.params.id;
   try {
     const sql = "SELECT * FROM Product WHERE category_id = ?";
-    req.db.get(sql, id, (err, rows) => {
+    req.db.all(sql, id, (err, rows) => {
       if (err) {
         res
           .status(404)
