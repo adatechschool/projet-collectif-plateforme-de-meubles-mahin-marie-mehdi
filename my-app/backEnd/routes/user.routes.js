@@ -20,10 +20,10 @@ userRouter.post("/inscription", (req, res) => {
 
 //
 userRouter.get("/user/:email", (req, res) => {
-  const id = req.params.id;
+  const email = req.params.email;
   try {
-    const sql = "SELECT * FROM Users WHERE email = ?";
-    req.db.get(sql, id, (err, rows) => {
+    const sql = "SELECT * FROM User WHERE email = ?";
+    req.db.get(sql, email, (err, rows) => {
       if (err) {
         res
           .status(404)
