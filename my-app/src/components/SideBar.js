@@ -66,7 +66,7 @@ function Sidebar() {
             aria-haspopup="true"
             aria-expanded="false"
           >
-            <i className="bi bi-person f5-4"></i>
+            <i className="bi bi-lamp"></i>
             <span className="fs-5 ms-3">Catégories</span>
           </a>
           <div className="dropdown-menu" aria-labelledby="triggerId">
@@ -135,7 +135,7 @@ function Sidebar() {
             aria-haspopup="true"
             aria-expanded="false"
           >
-            <i className="bi bi-person f5-4"></i>
+            <i className="bi bi-cash-coin"></i>
             <span className="fs-5 ms-3">Prix</span>
           </a>
           <div className="dropdown-menu" aria-labelledby="triggerId">
@@ -156,7 +156,7 @@ function Sidebar() {
             aria-haspopup="true"
             aria-expanded="false"
           >
-            <i className="bi bi-person f5-4"></i>
+            <i className="bi bi-gem"></i>
             <span className="fs-5 ms-3">Matériaux</span>
           </a>
           <div className="dropdown-menu" aria-labelledby="triggerId">
@@ -177,7 +177,7 @@ function Sidebar() {
             aria-haspopup="true"
             aria-expanded="false"
           >
-            <i className="bi bi-person f5-4"></i>
+            <i className="bi bi-palette"></i>
             <span className="fs-5 ms-3">Couleurs</span>
           </a>
           <div className="dropdown-menu" aria-labelledby="triggerId">
