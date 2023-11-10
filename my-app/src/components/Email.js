@@ -19,8 +19,7 @@ const Email = ({ setEmail }) => {
             onChange={handleEmailChange}
           />
         </div>
-      </div>
-    </form>
+      </form>
     </div>
   );
 };
