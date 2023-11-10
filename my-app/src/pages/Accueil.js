@@ -5,7 +5,7 @@ function Accueil() {
   return (
     <div Style="display: flex;">
       <Sidebar />
-      <CardsGenerator />
+      <CardsGenerator  />
     </div>
   );
 }
