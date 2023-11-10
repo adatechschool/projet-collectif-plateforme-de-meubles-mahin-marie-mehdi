@@ -43,7 +43,7 @@ function Category() {
                 />
               </div>
               <div className="card-body">
-                <Link to="/DetailPage">
+                <Link to={`/DetailPage/${product.id}`}>
                   <h5 className="card-title">{product.name}</h5>
                 </Link>
 
