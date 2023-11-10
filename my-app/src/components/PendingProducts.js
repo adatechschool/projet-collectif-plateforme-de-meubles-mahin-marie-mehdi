@@ -4,8 +4,7 @@ import { Table } from "react-bootstrap";
 import ValidateButton from "../components/ValidateButton";
 import DeleteButton from "../components/DeleteButton";
 
-function PendingProducts({pendingData, updateData}) {
-
+function PendingProducts({ pendingData, updateData }) {
   const tableClass = pendingData.length > 4 ? "container scrollable-table" : "";
 
   return (
@@ -30,9 +29,12 @@ function PendingProducts({pendingData, updateData}) {
                 <td>1</td>
                 <td>{product.material}</td>
 
-                <ValidateButton productId={product.id} onValidate={updateData}/>
+                <ValidateButton
+                  productId={product.id}
+                  onValidate={updateData}
+                />
 
-                <DeleteButton productId={product.id} onDelete={updateData}/>
+                <DeleteButton productId={product.id} onDelete={updateData} />
               </tr>
             ))}
           </tbody>

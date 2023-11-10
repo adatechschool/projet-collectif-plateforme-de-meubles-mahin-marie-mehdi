@@ -49,9 +49,6 @@ function Carousel() {
               src={result.picture}
               alt="First slide"
             />
-            <div className="carousel-caption d-none d-md-block">
-              <p>{result.description}</p>
-            </div>
           </div>
           <div className="carousel-item">
             <img
@@ -73,8 +70,7 @@ function Carousel() {
               src={result.picture}
               alt="Fourth slide"
             />
-            <div className="carousel-caption d-none d-md-block">
-            </div>
+            <div className="carousel-caption d-none d-md-block"></div>
           </div>
           <div className="carousel-item">
             <img

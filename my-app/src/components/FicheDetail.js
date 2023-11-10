@@ -26,6 +26,8 @@ function FicheDetail() {
         <h6 className="card-subtitle mb-2 text-muted">{result.price}</h6>
         <p className="card-text">Caractéristiques du produit :</p>
         <ul>
+          <li>Description :</li>
+          <p>{result.description}</p>
           <li>Dimensions :</li>
           <p>{result.dimensions}</p>
           <br></br>
