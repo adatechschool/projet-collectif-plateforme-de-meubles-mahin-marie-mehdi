@@ -9,7 +9,6 @@ function CardsGenerator() {
 
     axios.get('http://localhost:8080/products')
       .then(response => {
-        console.log(response.data);
         const filteredData = response.data.filter(product => product.status === 1);
         setStockData(filteredData);
       })

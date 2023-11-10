@@ -23,7 +23,7 @@ export default function App() {
           <Route path="accueil" element={<Accueil />} />
           <Route path="connexion" element={<Connexion />} />
           <Route path="inscription" element={<Inscription />} />
-          <Route path="detailpage" element={<DetailPage />} />
+          <Route path="DetailPage/:id" element={<DetailPage />} />
           <Route path="admin" element={<Admin />} />
         </Route>
       </Routes>
