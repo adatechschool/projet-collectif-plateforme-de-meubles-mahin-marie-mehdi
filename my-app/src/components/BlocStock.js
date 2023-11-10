@@ -5,8 +5,8 @@ import { Table } from "react-bootstrap";
 import ModifyButton from "../components/ModifyButton";
 import DeleteButton from "../components/DeleteButton";
 
-function BlocStock({stockData, updateData}) {
-  const tableClass = stockData.length > 4 ? "container scrollable-table" : "";
+function BlocStock({ stockData, updateData }) {
+  const tableClass = stockData.length > 0 ? "container scrollable-table" : "";
 
   return (
     <div>
@@ -24,15 +24,15 @@ function BlocStock({stockData, updateData}) {
           </thead>
           <tbody>
             {stockData.map((product, index) => (
-                <tr key={product.id}>
-                  <td>{product.id}</td>
-                  <td>{product.name}</td>
-                  <td>1</td>
-                  <td>{product.material}</td>
+              <tr key={product.id}>
+                <td>{product.id}</td>
+                <td>{product.name}</td>
+                <td>1</td>
+                <td>{product.material}</td>
 
-                  <ModifyButton />
+                <ModifyButton />
 
-                <DeleteButton productId={product.id} onDelete={updateData}/>
+                <DeleteButton productId={product.id} onDelete={updateData} />
               </tr>
             ))}
           </tbody>

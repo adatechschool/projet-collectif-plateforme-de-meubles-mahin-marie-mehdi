@@ -76,6 +76,7 @@ router.get("/products_status/0", (req, res) => {
 
 // GET all products that matches status = 1 (= validated)
 router.get("/products_status/1", (req, res) => {
+  const id = req.params.id;
   try {
     const sql = "SELECT * FROM Product WHERE status = 1";
     req.db.all(sql, id, (err, rows) => {
@@ -114,9 +115,11 @@ router.delete("/delete_product/:id", (req, res) => {
   try {
     const sql = "DELETE FROM product WHERE id = ?";
     // .run permet d'executer la requete de suppression au lieu du get qui récupère
-    req.db.run(sql, id, function(err) {
+    req.db.run(sql, id, function (err) {
       if (err) {
-        res.status(500).json({ message: "Internal server error during product deletion" });
+        res
+          .status(500)
+          .json({ message: "Internal server error during product deletion" });
       } else {
         res.json({ message: "Product deleted successfully" });
       }

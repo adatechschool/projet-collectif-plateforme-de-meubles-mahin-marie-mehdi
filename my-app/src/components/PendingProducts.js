@@ -5,7 +5,7 @@ import ValidateButton from "../components/ValidateButton";
 import DeleteButton from "../components/DeleteButton";
 
 function PendingProducts({ pendingData, updateData }) {
-  const tableClass = pendingData.length > 4 ? "container scrollable-table" : "";
+  const tableClass = pendingData.length > 0 ? "container scrollable-table" : "";
 
   return (
     <div>
