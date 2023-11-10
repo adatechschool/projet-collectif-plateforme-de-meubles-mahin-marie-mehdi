@@ -26,7 +26,7 @@ export default function App() {
           <Route path="inscription" element={<Inscription />} />
           <Route path="detailpage" element={<DetailPage />} />
           <Route path="admin" element={<Admin />} />
-          <Route path="category/:id" element={<Category />} />
+          <Route path="accueil/category/:id" element={<Category />} />
         </Route>
       </Routes>
     </BrowserRouter>

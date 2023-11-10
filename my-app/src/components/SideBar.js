@@ -1,25 +1,25 @@
 import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import 'bootstrap-icons/font/bootstrap-icons.css'
+import "bootstrap-icons/font/bootstrap-icons.css";
 import "bootstrap/js/dist/dropdown";
 import "bootstrap/js/dist/collapse";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
 function Sidebar() {
-  const [stockData, setStockData] = useState([]);
+  // const [stockData, setStockData] = useState([]);
 
-  const handleCategoryClick = (category) => {
-    axios.get(`http://localhost:8080/products_category/${category}`)
-      .then(response => {
-        setStockData(response.data);
-        console.log(response.data);
-      })
-      .catch(error => {
-        console.error('There was an error!', error);
-      });
-  };
-  
+  // const handleCategoryClick = (category) => {
+  //   axios.get(`http://localhost:8080/products_category/${category}`)
+  //     .then(response => {
+  //       setStockData(response.data);
+  //       console.log(response.data);
+  //     })
+  //     .catch(error => {
+  //       console.error('There was an error!', error);
+  //     });
+  // };
+
   return (
     <div className="col-auto col-md-2 bg-dark d-flex flex-column justify-content-between min-vh-100">
       <div className="ms-4 d-flex align-items-center text-white d-none d-sm-inline">
@@ -38,12 +38,10 @@ function Sidebar() {
             <span className="fs-5 ms-3">Catégories</span>
           </a>
           <div className="dropdown-menu" aria-labelledby="triggerId">
-            <a className="dropdown-item" onClick={() => handleCategoryClick(1)}>
-              Chaises
-            </a>
-            <a className="dropdown-item" href="#" onClick={() => handleCategoryClick(2)}>
-              Tables
-            </a>
+            <div className="dropdown-item">
+              <Link to={`./category/1`}>Chaises</Link>
+            </div>
+            <Link to={`./category/2`}>Tables</Link>
             <a className="dropdown-item" href="#">
               Tables basses
             </a>
