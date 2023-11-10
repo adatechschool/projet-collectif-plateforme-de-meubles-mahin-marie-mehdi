@@ -1,24 +1,23 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import logo from "../assets/images/COPMEBA.png";
 import { Link } from "react-router-dom";
 
 function CardsGenerator() {
   const [stockData, setStockData] = useState([]);
 
-  /* Replaced the mock data with an appel to the API endpoint for products using axios */
   useEffect(() => {
+
     axios.get('http://localhost:8080/products')
       .then(response => {
         console.log(response.data);
         const filteredData = response.data.filter(product => product.status === 1);
         setStockData(filteredData);
       })
-      .catch(error => {
-        console.error('There was an error!', error);
+      .catch((error) => {
+        console.error("There was an error!", error);
       });
   }, []);
-
+  console.log(stockData);
   // Définissez le nombre de colonnes par ligne (4 ou 5, selon votre choix)
   const columnsPerRow = 4;
 

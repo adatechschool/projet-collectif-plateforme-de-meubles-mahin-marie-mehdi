@@ -3,7 +3,6 @@ const Email = ({ setEmail }) => {
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
   };
-
   return (
     <div
       className="container d-flex justify-content-center align-items-center"
@@ -20,7 +19,8 @@ const Email = ({ setEmail }) => {
             onChange={handleEmailChange}
           />
         </div>
-      </form>
+      </div>
+    </form>
     </div>
   );
 };

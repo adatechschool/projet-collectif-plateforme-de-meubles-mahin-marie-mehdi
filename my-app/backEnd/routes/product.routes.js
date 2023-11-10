@@ -61,7 +61,7 @@ router.get("/products_status/0", (req, res) => {
   const id = req.params.id;
   try {
     const sql = "SELECT * FROM Product WHERE status = 0";
-    req.db.get(sql, id, (err, rows) => {
+    req.db.all(sql, id, (err, rows) => {
       if (err) {
         res
           .status(404)
@@ -74,18 +74,18 @@ router.get("/products_status/0", (req, res) => {
   }
 });
 
-// GET a single product that matches status = 1 (= validated)
+// GET all products that matches status = 1 (= validated)
 router.get("/products_status/1", (req, res) => {
-  const id = req.params.id;
   try {
     const sql = "SELECT * FROM Product WHERE status = 1";
     req.db.all(sql, id, (err, rows) => {
       if (err) {
         res
-          .status(404)
-          .json({ message: "Cannot find product that matches status 1" });
+          .status(500)
+          .json({ message: "Error retrieving products with status 1" });
+      } else {
+        res.json(rows);
       }
-      res.json(rows);
     });
   } catch (err) {
     res.status(500).json({ message: err.message });
@@ -93,7 +93,7 @@ router.get("/products_status/1", (req, res) => {
 });
 
 // UPDATE a product status to 1 (= validated)
-router.put("/update_status/", (req, res) => {
+router.put("/update_status/:id", (req, res) => {
   const id = req.params.id;
   try {
     const sql = "UPDATE product SET status = 1 WHERE id = ?";
@@ -109,15 +109,17 @@ router.put("/update_status/", (req, res) => {
 });
 
 // DELETE product from the table
-router.delete("/delete_product/", (req, res) => {
+router.delete("/delete_product/:id", (req, res) => {
   const id = req.params.id;
   try {
     const sql = "DELETE FROM product WHERE id = ?";
-    req.db.get(sql, id, (err, rows) => {
+    // .run permet d'executer la requete de suppression au lieu du get qui récupère
+    req.db.run(sql, id, function(err) {
       if (err) {
-        res.status(404).json({ message: "Cannot delete product" });
+        res.status(500).json({ message: "Internal server error during product deletion" });
+      } else {
+        res.json({ message: "Product deleted successfully" });
       }
-      res.json(rows);
     });
   } catch (err) {
     res.status(500).json({ message: err.message });
