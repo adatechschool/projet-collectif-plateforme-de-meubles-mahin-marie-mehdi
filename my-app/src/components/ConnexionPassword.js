@@ -1,5 +1,8 @@
 // Composant Password de la Connexion
-const ConnexionPassword = () => {
+const ConnexionPassword = ({ setPassword }) => {
+  const handlePasswordChange = (event) => {
+    setPassword(event.target.value);
+  };
   return (
     <div
       className="container d-flex justify-content-center align-items-center"
@@ -13,6 +16,7 @@ const ConnexionPassword = () => {
             id="inputPassword1"
             aria-describedby="passwordHelpInline"
             className="form-control"
+            onChange={handlePasswordChange}
           />
         </div>
       </form>

@@ -27,6 +27,25 @@ userRouter.post("/inscription", (req, res) => {
   }
 });
 
+
+//
+userRouter.get("/user/:email", (req, res) => {
+  const email = req.params.email;
+  try {
+    const sql = "SELECT * FROM User WHERE email = ?";
+    req.db.get(sql, email, (err, rows) => {
+      if (err) {
+        res
+          .status(404)
+          .json({ message: "You don't have an account" });
+      }
+      res.json(rows);
+    });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
+
 module.exports = userRouter;
 
 

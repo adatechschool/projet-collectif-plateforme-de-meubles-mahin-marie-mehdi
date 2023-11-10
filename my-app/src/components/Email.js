@@ -1,17 +1,15 @@
 // Composant Email
-const Email = ({setEmail}) => {
-  const handleEmailChange= (event) => {
+const Email = ({ setEmail }) => {
+  const handleEmailChange = (event) => {
     setEmail(event.target.value);
   };
-  
   return (
     <div
       className="container d-flex justify-content-center align-items-center"
       style={{ minHeight: "0vh" }}
     >
-      <form style={{ width: "720px" }} className="container">
-      <div className="container d-flex justify-content-center align-items-center">
-        <div className="col-sm-6 my-1">
+      <form style={{ width: "300px" }}>
+        <div className="form-group text-center">
           <label>Email</label>
           <input
             type="text"
