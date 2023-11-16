@@ -16,8 +16,6 @@ Avant de commencer le développement, nous avons élaboré une maquette sous for
 
 ![](my-app/src/assets/images/maquette2.png)
 
-![](my-app/src/assets/images/maquette3.png)
-
 ![](my-app/src/assets/images/maquette4.png)
 
 ![](my-app/src/assets/images/maquette5.png)
