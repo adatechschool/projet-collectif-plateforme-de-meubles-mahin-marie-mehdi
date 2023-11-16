@@ -12,23 +12,23 @@ COPAMEBA a été conçu et réalisé en deux semaines avec un travail réparti e
 
 Avant de commencer le développement, nous avons élaboré une maquette sous forme de wireframe, réalisée sur Miro.
 
-![](my-app\src\assets\images\maquette1.png)
+![](my-app/src/assets/images/maquette1.png)
 
-![](my-app\src\assets\images\maquette2.png)
+![](my-app/src/assets/images/maquette2.png)
 
-![](my-app\src\assets\images\maquette3.png)
+![](my-app/src/assets/images/maquette3.png)
 
-![](my-app\src\assets\images\maquette4.png)
+![](my-app/src/assets/images/maquette4.png)
 
-![](my-app\src\assets\images\maquette5.png)
+![](my-app/src/assets/images/maquette5.png)
 
-![](my-app\src\assets\images\maquette6.png)
+![](my-app/src/assets/images/maquette6.png)
 
 ### Organisation
 
 Pour la gestion des tâches nous avons utilisé Trello.
 
-![](my-app\src\assets\images\trello.png)
+![](my-app/src/assets/images/trello.png)
 
 ### Back-end & BDD
 
@@ -47,11 +47,11 @@ Et les tables SQLite sont les suivantes :
 - product
 - product_category
 
-![](my-app\src\assets\images\table1.png)
+![](my-app/src/assets/images/table1.png)
 
-![](my-app\src\assets\images\table2.png)
+![](my-app/src/assets/images/table2.png)
 
-![](my-app\src\assets\images\table3.png)
+![](my-app/src/assets/images/table3.png)
 
 Voir ce que retournent en méthode GET (avec Insomnia ou Postman) les endpoints suivant :
 
@@ -90,17 +90,17 @@ npm run start
 
 Voici un aperçu des différentes pages :
 
-![](my-app\src\assets\images\site1.png)
+![](my-app/src/assets/images/site1.png)
 
-![](my-app\src\assets\images\site2.png)
+![](my-app/src/assets/images/site2.png)
 
-![](my-app\src\assets\images\site3.png)
+![](my-app/src/assets/images/site3.png)
 
-![](my-app\src\assets\images\site4.png)
+![](my-app/src/assets/images/site4.png)
 
-![](my-app\src\assets\images\site5.png)
+![](my-app/src/assets/images/site5.png)
 
-![](my-app\src\assets\images\site6.png)
+![](my-app/src/assets/images/site6.png)
 
 ### Ce qui pourrait être amélioré :
 
